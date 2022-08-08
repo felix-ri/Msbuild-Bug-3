@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LibA\LibA.csproj">
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+			<!--<KopiLokal>true</KopiLokal>-->
+		</ProjectReference>
+	</ItemGroup>
+
+
+	<Target Name="ProcessKopiLokal">
+		<ItemGroup>
+			<ProjectReference Update="@(ProjectReference)" Condition="'%(ProjectReference.KopiLokal)' == 'true'">
+				<Private>true</Private>
+				<ExcludeAssets>none</ExcludeAssets>
+			</ProjectReference>
+			<ProjectReference Update="@(ProjectReference)" Condition="'%(ProjectReference.KopiLokal)' != 'true'">
+				<Private>false</Private>
+				<ExcludeAssets>runtime</ExcludeAssets>
+			</ProjectReference>
+		</ItemGroup>
+	</Target>
+</Project>
