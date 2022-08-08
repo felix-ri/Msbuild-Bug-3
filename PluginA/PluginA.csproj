@@ -9,7 +9,7 @@
 		<ProjectReference Include="..\LibA\LibA.csproj">
 			<!--<Private>false</Private>
 			<ExcludeAssets>runtime</ExcludeAssets>-->
-			<KopiLokal>true</KopiLokal>
+			<KopiLokal>false</KopiLokal>
 		</ProjectReference>
 	</ItemGroup>
 
