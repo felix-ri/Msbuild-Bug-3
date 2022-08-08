@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="">
+﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="ProcessKopiLokal">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -7,9 +7,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\LibA\LibA.csproj">
-			<Private>false</Private>
-			<ExcludeAssets>runtime</ExcludeAssets>
-			<!--<KopiLokal>true</KopiLokal>-->
+			<!--<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>-->
+			<KopiLokal>true</KopiLokal>
 		</ProjectReference>
 	</ItemGroup>
 
