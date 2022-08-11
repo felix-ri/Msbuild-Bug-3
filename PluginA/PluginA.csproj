@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="ProcessKopiLokal">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -7,23 +7,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\LibA\LibA.csproj">
-			<!--<Private>false</Private>
-			<ExcludeAssets>runtime</ExcludeAssets>-->
-			<KopiLokal>false</KopiLokal>
+			<Private>false</Private>
+			<IncludeAssets>compile</IncludeAssets>
 		</ProjectReference>
 	</ItemGroup>
-
-
-	<Target Name="ProcessKopiLokal">
-		<ItemGroup>
-			<ProjectReference Update="@(ProjectReference)" Condition="'%(ProjectReference.KopiLokal)' == 'true'">
-				<Private>true</Private>
-				<ExcludeAssets>none</ExcludeAssets>
-			</ProjectReference>
-			<ProjectReference Update="@(ProjectReference)" Condition="'%(ProjectReference.KopiLokal)' != 'true'">
-				<Private>false</Private>
-				<ExcludeAssets>runtime</ExcludeAssets>
-			</ProjectReference>
-		</ItemGroup>
-	</Target>
 </Project>
