@@ -5,10 +5,17 @@
 		<EnableDynamicLoading>true</EnableDynamicLoading>
 	</PropertyGroup>
 
+	<ItemDefinitionGroup>
+		<ProjectReference>
+			<!--<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>-->
+		</ProjectReference>
+	</ItemDefinitionGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\LibA\LibA.csproj">
 			<Private>false</Private>
-			<IncludeAssets>compile</IncludeAssets>
+			<ExcludeAssets>runtime</ExcludeAssets>
 		</ProjectReference>
 	</ItemGroup>
 </Project>
