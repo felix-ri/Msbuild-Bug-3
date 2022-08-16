@@ -1,14 +1,32 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="MakePrivate">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<!--<DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>-->
 		<EnableDynamicLoading>true</EnableDynamicLoading>
 	</PropertyGroup>
 
+	<ItemDefinitionGroup>
+		<ProjectReference>
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</ProjectReference>
+	</ItemDefinitionGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\LibA\LibA.csproj">
-			<Private>false</Private>
-			<IncludeAssets>compile</IncludeAssets>
+			<!--<Copey>True</Copey>-->
+			<!--<Private>true</Private>
+			<ExcludeAssets>none</ExcludeAssets>-->
 		</ProjectReference>
 	</ItemGroup>
+
+	<Target Name="MakePrivate">
+		<!--<ItemGroup>
+			<ProjectReference Update="@(ProjectReference)" Condition="'%(ProjectReference.Copey)' == 'True'">
+				<Private>true</Private>
+				<ExcludeAssets>none</ExcludeAssets>
+			</ProjectReference>
+		</ItemGroup>-->
+	</Target>
 </Project>
